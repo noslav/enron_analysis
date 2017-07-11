@@ -1,0 +1,74 @@
+---
+title: "Enron_file"
+output: html_notebook
+---
+
+
+
+```{r}
+library(readr)
+enron <- read_csv("enron_pickle.csv")
+```
+
+summarize the data
+
+```{r}
+summary(enron)
+```
+remove text values from table (email address), convert boolean to class, 
+and remove nans
+
+
+```{r}
+enron_reduced = subset(enron, select = - c (email_address))
+enron_reduced$poi <- as.integer(enron_reduced_nobool$poi == "True")
+```
+
+count number of NAs
+
+```{r}
+sum(is.na(enron_reduced))
+```
+replace NAs with 0
+
+```{r}
+enron_reduced[is.na(enron_reduced)] <- 0
+```
+
+export enron data set with replaced Nan values to new csv
+
+```{r}
+write.csv( file= "enron_pickle_nona.csv", x =enron_reduced)
+```
+
+write new csv file which converts boolean to integer value
+
+```{r}
+enron_reduced_nobool <- enron_reduced
+
+```
+
+make new data set with only the poi values for feature selection exercise
+
+```{r}
+enron_poi <- enron_reduced = subset(enron, select = c(poi ))
+```
+
+
+```{r}
+write.csv( file= "enron_pickle_nona_nobool.csv", x =enron_reduced_nobool)
+```
+
+
+determine correlation table
+```{r, fig.width=2}
+cor(enron_reduced)
+```
+
+
+getting all the column names for feature selection in the python file poi_id.py
+
+```{r}
+colnames(enron)
+```
+
