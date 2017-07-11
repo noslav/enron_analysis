@@ -1,0 +1,72 @@
+
+first results.
+0.85 NB Accuracy 0.5 NB precision
+0.75 DT Accuracy 0.333333333333 DT precision
+0.85 RF Accuracy 0.0 RF precision
+0.7 AB Accuracy 0.0 AB precision
+0.824175824176 AB Cross val score
+
+0.928571428571 NB Accuracy 1.0 NB precision
+0.761904761905 DT Accuracy 0.166666666667 DT precision
+0.857142857143 SVM Accuracy 0.0 SVM precision
+/Library/Python/2.7/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples.
+  'precision', 'predicted', average, warn_for)
+0.785714285714 RF Accuracy 0.0 RF precision
+0.761904761905 AB Accuracy 0.0 AB precision
+0.81221001221 AB Cross val score
+
+added bonus as feature and also modified some aspects of the classfiers
+
+0.825 NB Accuracy 0.333333333333 NB precision
+0.775 DT Accuracy 0.2 DT precision
+0.85 SVM Accuracy 0.0 SVM precision
+/Library/Python/2.7/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples.
+  'precision', 'predicted', average, warn_for)
+0.875 RF Accuracy 1.0 RF precision
+0.775 AB Accuracy 0.2 AB precision
+0.880952380952 AB Cross val score
+
+
+SVM not working should be removed.
+
+0.825 NB Accuracy 0.333333333333 NB precision
+0.825 DT Accuracy 0.333333333333 DT precision
+0.85 SVM Accuracy 0.0 SVM precision
+/Library/Python/2.7/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples.
+  'precision', 'predicted', average, warn_for)
+0.875 RF Accuracy 1.0 RF precision
+0.775 AB Accuracy 0.2 AB precision
+0.880952380952 AB Cross val score
+
+
+DT seems to have good results in the predicition
+both are high recall and precision
+
+
+
+removed the  receipts with poi feature and used salary, bonus and total stock value
+0.820512820513 NB Accuracy 0.25 NB precision
+0.692307692308 DT Accuracy 0.111111111111 DT precision
+0.846153846154 RF Accuracy 0.333333333333 RF precision
+0.74358974359 AB Accuracy 0.0 AB precision
+0.817765567766 AB Cross val score
+0.692307692308 DT Accuracy 0.111111111111 DT precision
+
+
+random forests is starting to jump out with better precision but NB, DT, AB seem to have been affected
+trying on tester.py
+
+DT now used with entorpy rather than gini
+0.825 NB Accuracy 0.333333333333 NB precision
+0.875 RF Accuracy 1.0 RF precision
+0.775 AB Accuracy 0.2 AB precision
+0.904761904762 AB Cross val score
+0.875 DT Accuracy 0.571428571429 DT precision
+
+
+reverted back to original values for DT since the tuning did not work.
+
+
+
+
+

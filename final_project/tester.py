@@ -103,3 +103,33 @@ def main():
 
 if __name__ == '__main__':
     main()
+    
+def featureNoSelect(X, y):
+    import matplotlib.pyplot as plt
+    from sklearn.svm import SVC
+    from sklearn.model_selection import StratifiedKFold
+    from sklearn.feature_selection import RFECV
+    from sklearn.datasets import make_classification
+    from sklearn.ensemble import ExtraTreesClassifier
+    from sklearn.ensemble import RandomForestClassifier
+
+
+# Build a classification task using 3 informative features
+
+
+# Create the RFE object and compute a cross-validated score.
+    svc =  RandomForestClassifier(n_estimators=20)
+# The "accuracy" scoring is proportional to the number of correct
+# classifications
+    rfecv = RFECV(estimator=svc, step=1, cv=StratifiedKFold(6),
+              scoring='precision')
+    rfecv.fit(X, y)
+
+    print("Optimal number of features : %d" % rfecv.n_features_)
+
+# Plot number of features VS. cross-validation scores
+    plt.figure()
+    plt.xlabel("Number of features selected")
+    plt.ylabel("Cross validation score (nb of correct classifications)")
+    plt.plot(range(1, len(rfecv.grid_scores_) + 1), rfecv.grid_scores_)
+    plt.show()      
