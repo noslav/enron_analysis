@@ -122,7 +122,7 @@ def featureNoSelect(X, y):
 # The "accuracy" scoring is proportional to the number of correct
 # classifications
     rfecv = RFECV(estimator=svc, step=1, cv=StratifiedKFold(6),
-              scoring='precision')
+              scoring='accuracy')
     rfecv.fit(X, y)
 
     print("Optimal number of features : %d" % rfecv.n_features_)
@@ -133,3 +133,4 @@ def featureNoSelect(X, y):
     plt.ylabel("Cross validation score (nb of correct classifications)")
     plt.plot(range(1, len(rfecv.grid_scores_) + 1), rfecv.grid_scores_)
     plt.show()      
+

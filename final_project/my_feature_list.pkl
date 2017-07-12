@@ -9,6 +9,4 @@ aS'expenses'
 p4
 aS'bonus'
 p5
-aS'relative_importance'
-p6
 a.
